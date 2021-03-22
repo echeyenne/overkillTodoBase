@@ -135,6 +135,15 @@
   dependencies:
     tslib "^2.0.0"
 
+"@angular/cdk@^11.2.2":
+  version "11.2.2"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@angular/cdk/-/cdk-11.2.2.tgz#f541069db3f5705d8c064138f6cd94568fe1b658"
+  integrity sha1-9UEGnbP1cF2MBkE49s2UVo/htlg=
+  dependencies:
+    tslib "^2.0.0"
+  optionalDependencies:
+    parse5 "^5.0.0"
+
 "@angular/cli@~11.2.2":
   version "11.2.2"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@angular/cli/-/cli-11.2.2.tgz#ca56894f1a4d1f4e411408b8185b711614c3195a"
@@ -219,6 +228,13 @@
   version "11.2.3"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@angular/forms/-/forms-11.2.3.tgz#57460a110e6601b50362f878fc0f67701c76dc24"
   integrity sha1-V0YKEQ5mAbUDYvh4/A9ncBx23CQ=
+  dependencies:
+    tslib "^2.0.0"
+
+"@angular/material@^11.2.2":
+  version "11.2.2"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@angular/material/-/material-11.2.2.tgz#718f97ab82a2da2b549aa773416e6a4ac46089ec"
+  integrity sha1-cY+Xq4Ki2itUmqdzQW5qSsRgiew=
   dependencies:
     tslib "^2.0.0"
 
@@ -1129,6 +1145,27 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.7.0"
 
+"@ngrx/effects@^11.0.1":
+  version "11.0.1"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@ngrx/effects/-/effects-11.0.1.tgz#54d272e7bca411eaad5de144c67876beaba99b5f"
+  integrity sha1-VNJy57ykEeqtXeFExnh2vqupm18=
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store-devtools@^11.0.1":
+  version "11.0.1"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@ngrx/store-devtools/-/store-devtools-11.0.1.tgz#64b332f64e73538e7facb9d9d7e5f66c7ff1b834"
+  integrity sha1-ZLMy9k5zU45/rLnZ1+X2bH/xuDQ=
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store@^11.0.1":
+  version "11.0.1"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@ngrx/store/-/store-11.0.1.tgz#fd229b704bb9847ddd2c299cf26eb19017aa7f9a"
+  integrity sha1-/SKbcEu5hH3dLCmc8m6xkBeqf5o=
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@11.2.2":
   version "11.2.2"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/@ngtools/webpack/-/webpack-11.2.2.tgz#647862ed19761796c7f84d5fb3305661d2a3af67"
@@ -1580,6 +1617,11 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
+
+angular-in-memory-web-api@^0.11.0:
+  version "0.11.0"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/angular-in-memory-web-api/-/angular-in-memory-web-api-0.11.0.tgz#46e4ad896b36d669f36801fc8cafa7db8278d078"
+  integrity sha1-RuStiWs21mnzaAH8jK+n24J40Hg=
 
 ansi-colors@4.1.1:
   version "4.1.1"
@@ -5018,6 +5060,13 @@ jasmine-core@~2.8.0:
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/jasmine-core/-/jasmine-core-2.8.0.tgz#bcc979ae1f9fd05701e45e52e65d3a5d63f1a24e"
   integrity sha1-vMl5rh+f0FcB5F5S5l06XWPxok4=
 
+jasmine-marbles@^0.8.1:
+  version "0.8.1"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/jasmine-marbles/-/jasmine-marbles-0.8.1.tgz#a377196abc0eea33429a235cdc3bc3d1e3fad06f"
+  integrity sha1-o3cZarwO6jNCmiNc3DvD0eP60G8=
+  dependencies:
+    lodash "^4.17.20"
+
 jasmine-spec-reporter@~5.0.0:
   version "5.0.2"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/jasmine-spec-reporter/-/jasmine-spec-reporter-5.0.2.tgz#b61288ab074ad440dc2477c4d42840b0e74a6b95"
@@ -5361,7 +5410,7 @@ lodash.uniq@^4.5.0:
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.19:
+lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.21"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -5821,6 +5870,11 @@ next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
+
+ng-mocks@^11.9.0:
+  version "11.9.0"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/ng-mocks/-/ng-mocks-11.9.0.tgz#d9378cf11bc672f743e70305d33ce374faf0db98"
+  integrity sha1-2TeM8RvGcvdD5wMF0zzjdPrw25g=
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -6326,6 +6380,11 @@ parse5-sax-parser@^6.0.1:
   dependencies:
     parse5 "^6.0.1"
 
+parse5@^5.0.0:
+  version "5.1.1"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/parse5/-/parse5-5.1.1.tgz#f68e4e5ba1852ac2cadc00f4555fff6c2abb6178"
+  integrity sha1-9o5OW6GFKsLK3AD0VV//bCq7YXg=
+
 parse5@^6.0.1:
   version "6.0.1"
   resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
@@ -6828,6 +6887,11 @@ postcss@^8.1.4:
     colorette "^1.2.1"
     nanoid "^3.1.20"
     source-map "^0.6.1"
+
+prettier@^2.2.1:
+  version "2.2.1"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/artifactory/api/npm/npm/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha1-eVoaeN1S8HPaDNQrIfnJE4GSP/U=
 
 pretty-bytes@^5.3.0:
   version "5.6.0"
