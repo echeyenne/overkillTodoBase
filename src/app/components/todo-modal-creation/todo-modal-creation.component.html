@@ -1,0 +1,19 @@
+<h2 mat-dialog-title> Todo Creation </h2>
+<mat-dialog-content [formGroup]="todoForm">
+    <mat-form-field>
+        <mat-label> title * </mat-label>
+        <input matInput placeholder="Tap your title" formControlName="title" [class.is-invalid]="validInput({ name: 'title', type: 'invalid' })">
+        <mat-hint *ngIf="validInput({ name: 'title', type: 'invalid' })">
+            <small class="text-danger" *ngIf="inputError({ fieldName: 'title', errorName: FormErrorEnum.Required })">
+                Title is Required
+            </small>
+        </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+        <mat-label> Description </mat-label>
+        <input matInput placeholder="Tap your description" formControlName="description">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [disabled]="todoForm.invalid" (click)="createTodo()"> Create </button>
+</mat-dialog-actions>

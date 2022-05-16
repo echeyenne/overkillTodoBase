@@ -2,15 +2,11 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
+import { MatModule } from './components/modules/mat.module';
 import {AppComponent} from './app.component';
-import {TodoListComponent} from './todo-list/todo-list.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import {TodoListComponent} from './components/todo-list/todo-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatListModule} from '@angular/material/list';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {todosReducer} from './store/reducer';
 import {environment} from '../environments/environment';
@@ -20,22 +16,27 @@ import {Effects} from './store/effects';
 import {HttpClientModule} from '@angular/common/http';
 import {MockTodoApi} from './services/mock-todo-api';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { TodoDescriptionComponent } from './components/todo-description/todo-description.component';
+import { TodoModalCreationComponent } from './components/todo-modal-creation/todo-modal-creation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoDescriptionComponent,
+    TodoModalCreationComponent,
+    HeaderComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
+    MatModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatListModule,
-    MatCheckboxModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(MockTodoApi),
     StoreModule.forRoot({todosStore: todosReducer}),

@@ -1,0 +1,20 @@
+<div id="container" *ngIf="todo$ | async as todo">
+    <mat-card>
+        <mat-card-title>
+            {{todo.title}}
+            <mat-icon *ngIf="todo.isClosed; else undone">mood</mat-icon>
+            <ng-template #undone>
+                <mat-icon>mood_bad</mat-icon>
+            </ng-template>
+            <a mat-icon-button [routerLink]="['/']" style="float: right;">
+                <mat-icon>home</mat-icon>
+            </a>
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{ todo.updated | dateFormat: languageFormat.FR }}
+        </mat-card-subtitle>
+        <mat-card-content>
+            {{todo.description}}
+        </mat-card-content>
+    </mat-card>
+</div>

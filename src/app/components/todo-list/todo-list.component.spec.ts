@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoListComponent } from './todo-list.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { State } from '../store/reducer';
-import { selectTodos } from '../store/selectors';
+import { State } from '../../store/reducer';
+import { selectTodos } from '../../store/selectors';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { MatList, MatListItem } from '@angular/material/list';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
@@ -43,8 +43,8 @@ describe('TodoListComponent', () => {
     component = fixture.componentInstance;
 
     mockTodosSelector = store.overrideSelector(selectTodos, [
-      { title: 'todo 1', isClosed: false },
-      { title: 'todo 2', isClosed: true },
+      { id: 1, title: 'todo 1', isClosed: false, description: 'ss',  updated: '2019-05-01' },
+      { id: 2, title: 'todo 2', isClosed: false, description: 'ttt',  updated: '2020-05-01' },
     ]);
 
     fixture.detectChanges();
