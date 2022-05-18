@@ -14,7 +14,7 @@
               [checked]="todo.isClosed"
               (change)="changeCheckboxStatus($event, todo)"
             ></mat-checkbox>
-            <span *ngIf="!todo.isClosed; else crossedOut">
+            <span class="todo-title" *ngIf="!todo.isClosed; else crossedOut">
               {{ todo.title }}
             </span>
             <ng-template #crossedOut>
