@@ -1,24 +1,19 @@
 import * as fromReducer from './reducer';
 import { State } from './reducer';
-import { loadTodosSuccess } from './actions';
+import { createTodoSuccess, loadTodosSuccess } from './actions';
+import { Todo } from '../models/todo';
 
 describe('Reducer', () => {
-  describe('unknown action', () => {
-    it('should return the default state', () => {
-      const { initialState } = fromReducer;
-      const action = {
-        type: 'Unknown',
-      };
-      const state = fromReducer.todosReducer(initialState, action);
-
-      expect(state).toBe(initialState);
+  let initialState: fromReducer.State;
+  describe('loadTodos', () => {
+    beforeEach(() => {
+        initialState = fromReducer.initialState;
     });
-  });
-
-  describe('loadTodosSuccess action', () => {
-    it('should retrieve all todos and update the state', () => {
-      const { initialState } = fromReducer;
-      const newState: State = { todos: [{ title: 'aTitle', isClosed: false }] };
+    it('should have all todos on state', () => {
+      const newState: State = { todos:
+        [{ id: 1, title: 'aTitle', description: 'test description', isClosed: false, updated: '2020-01-02' }],
+        closeTodoModalCreation: false
+      };
       const action = loadTodosSuccess({
         todos: [...newState.todos],
       });
@@ -27,6 +22,24 @@ describe('Reducer', () => {
 
       expect(state).toEqual(newState);
       expect(state).not.toBe(newState);
+    });
+  });
+
+  describe('createTodo', () => {
+    it('should have a new todo after the creation', () => {
+      const todo: Todo = {id: 1, title: 'aTitle', description: 'test description', isClosed: false, updated: '2020-01-02'};
+      const emptySate = { todos: [], closeTodoModalCreation: false};
+      initialState = {...emptySate};
+      const expectedState = {
+        closeTodoModalCreation: true ,
+        todos: [todo]
+      };
+
+      const action = createTodoSuccess({ todo });
+      const state = fromReducer.todosReducer(initialState, action);
+
+      expect(state).toEqual(expectedState);
+      expect(state).not.toBe(emptySate);
     });
   });
 });

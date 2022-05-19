@@ -3,17 +3,17 @@ import { StoreModule } from '@ngrx/store';
 import { Effects } from './effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
-import { Actions } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
 import { todosReducer } from './reducer';
 import { TodoService } from '../services/todo.service';
-import { cold, hot } from 'jasmine-marbles';
-import {loadTodos, loadTodosFailed, loadTodosSuccess} from './actions';
+import {  loadTodosSuccess, createTodoSuccess} from './actions';
 import { Todo } from '../models/todo';
+import { formatDate } from '../utils/date.utils';
 
 describe('Effects', () => {
   let effects: Effects;
-  let actions: Observable<Actions>;
-  const todoService = jasmine.createSpyObj<TodoService>('TodoService', ['list']);
+  let actions: Observable<Action>;
+  let todoService: jasmine.SpyObj<TodoService>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -29,34 +29,37 @@ describe('Effects', () => {
     });
 
     effects = TestBed.inject(Effects);
+    todoService = jasmine.createSpyObj<TodoService>('TodoService', ['list', 'createTodo']);
   });
 
   describe('loadTodos$', () => {
-    it('should dispatch loadTodosSuccess action when todoService.list return a result', () => {
-      const mockedTodos: Todo[] = [{ title: 'aTitle', isClosed: true }];
-      todoService.list.and.returnValue(of(mockedTodos));
+    it('should dispatch loadTodoSuccess type action when success', () => {
+      const todos: Todo[] = [
+        { id: 1, title: 'todo in memory 1', description: 'description du todo 1', updated: '2019-01-03', isClosed: false },
+        { id: 2, title: 'todo in memory 2', description: 'description du todo 2', updated: '2021-02-03', isClosed: false },
+        { id: 3, title: 'todo in memory 3', description: 'description du todo 3', updated: '2022-05-02', isClosed: false }
+      ];
+      actions = of({ type: loadTodosSuccess.type, todos });
+      todoService.list.and.returnValue(of(todos));
 
-      actions = hot('-a-', {
-        a: loadTodos(),
+      effects.loadTodos$.subscribe(action => {
+        expect(action).toEqual({ type: loadTodosSuccess.type, todos });
       });
-      const expected = cold('-b-', {
-        b: loadTodosSuccess({ todos: mockedTodos }),
-      });
-
-      expect(effects.loadTodos$).toBeObservable(expected);
     });
+  });
 
-    it('should dispatch loadTodosFailed action when todoService.list fails', () => {
-      todoService.list.and.returnValue(cold('#'));
+  describe('createTodo', () => {
+    it('should dispatch createTodoSuccess type action when success', () => {
+      const todo: Todo = {
+        id: Math.floor(Math.random() * 100_000), title: 'test', description: '', updated: formatDate({ date: new Date() }), isClosed: false
+      };
+      actions = of({ type: createTodoSuccess.type, todo });
+      todoService.createTodo.and.returnValue(of(todo));
 
-      actions = hot('-a-', {
-        a: loadTodos(),
+      effects.createTodo$.subscribe(action => {
+        expect(action).toEqual({ type: createTodoSuccess.type, todo });
       });
-      const expected = cold('-b-', {
-        b: loadTodosFailed(),
-      });
 
-      expect(effects.loadTodos$).toBeObservable(expected);
     });
   });
 });
