@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { State } from 'src/app/store/reducer';
+import { provideMockStore } from '@ngrx/store/testing';
 import { MatModule } from '../modules/mat.module';
 
 import { TodoModalCreationComponent } from './todo-modal-creation.component';
@@ -11,8 +9,6 @@ import { TodoModalCreationComponent } from './todo-modal-creation.component';
 describe('TodoModalCreationComponent', () => {
   let component: TodoModalCreationComponent;
   let fixture: ComponentFixture<TodoModalCreationComponent>;
-  let store: MockStore<State>;
-  let mockTodosSelector;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -35,12 +31,12 @@ describe('TodoModalCreationComponent', () => {
 
   it('Have is required message on title field', () => {
     const todoForm = component.todoForm;
-    todoForm.get('title')?.setValue('cc')
+    todoForm.get('title')?.setValue('cc');
     fixture.detectChanges();
     todoForm.get('title')?.setValue('');
     expect(todoForm.get('title')?.getError('required')).toBeTruthy();
   });
-  
+
   it('Have button disabled or not', () => {
     const todoForm = component.todoForm;
     const element = fixture.debugElement.nativeElement;

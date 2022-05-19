@@ -1,6 +1,5 @@
-import { async, ComponentFixture, inject, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TodoListComponent } from '../todo-list/todo-list.component';
 
@@ -35,6 +34,6 @@ describe('HeaderComponent', () => {
   it('should have a home link', () => {
     const href = fixture.debugElement.query(By.css('a')).nativeElement.getAttribute('ng-reflect-router-link');
     fixture.detectChanges();
-    expect(href).toEqual('/')
+    expect(href).toEqual('/');
   });
 });
