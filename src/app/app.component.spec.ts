@@ -25,10 +25,4 @@ describe('AppComponent', () => {
     const routerOutlet = fixture.debugElement.query(By.css('router-outlet'));
     expect(routerOutlet).not.toBeNull();
   });
-
-  it('should render title', () => {
-    expect(
-      fixture.debugElement.query(By.css('mat-toolbar a')).nativeElement.innerText
-    ).toContain('Overkill Todo App');
-  });
 });
