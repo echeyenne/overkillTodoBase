@@ -9,9 +9,8 @@ import { MatList, MatListItem } from '@angular/material/list';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import {MockComponents, MockedComponent} from 'ng-mocks';
+import {MockComponents, MockDirectives, MockedComponent} from 'ng-mocks';
 import { By } from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -27,10 +26,12 @@ describe('TodoListComponent', () => {
           MatCheckbox,
           MatListItem,
           MatList,
-          MatCardContent,
-          MatCardTitle,
           MatCard
         ),
+        MockDirectives(
+          MatCardContent,
+          MatCardTitle
+        )
       ],
       imports: [MatRippleModule, FormsModule],
       providers: [provideMockStore()],
